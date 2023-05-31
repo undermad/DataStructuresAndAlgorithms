@@ -1,6 +1,8 @@
 package com.ectimel.quick;
 
 public class Main {
+//    Divide and Conquer Method
+//    worst case is n^2 (quadratic time complexity)
 
     public static void main(String[] args) {
 //        {12, 3, 4, 2, 123, -1, 9, 0};
@@ -52,7 +54,7 @@ public class Main {
             do {
                 i++;
             }
-            while (i < j && input[i] <= pivot);
+            while (i < j && input[i] < pivot);
             if (i < j) {
                 input[j] = input[i];
             }
@@ -61,32 +63,5 @@ public class Main {
         input[j] = pivot;
         return j;
     }
-
-    private static int anotherPartition(int[] arr, int start, int end) {
-        // {12, 1, 3, 4, 31, 23, -1, 2}
-        int pivot = arr[start];
-        int i = start;
-        int j = end;
-
-        while (i < j) {
-
-            do {
-                i++;
-            } while (i < j && arr[i] <= pivot);
-
-            do {
-                j--;
-            } while (i < j && arr[j] >= pivot);
-
-            if (i < j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        arr[j] = pivot;
-        return j;
-    }
-
 
 }
